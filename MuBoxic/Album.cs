@@ -11,6 +11,13 @@ namespace MuBoxic
         public string Name { get; set; }
         public int Year { get; set; }
 
-        public List<Song> Songs;
+        public readonly List<Song> Songs;
+
+        public Album (string name, int year, List<Song> songs)
+        {
+            Name = name;
+            Year = year;
+            Songs = songs;
+        }
     }
 }

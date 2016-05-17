@@ -19,7 +19,7 @@ namespace MuBoxic
 
         private void AlbumsButton_Click(object sender, EventArgs e)
         {
-            Program.print();
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -27,9 +27,10 @@ namespace MuBoxic
 
         }
 
-        private void listView1_MouseClick(object sender, MouseEventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            
+
         }
+        
     }
 }
