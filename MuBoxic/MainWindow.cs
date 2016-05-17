@@ -16,5 +16,20 @@ namespace MuBoxic
         {
             InitializeComponent();
         }
+
+        private void AlbumsButton_Click(object sender, EventArgs e)
+        {
+            Program.print();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            
+        }
     }
 }

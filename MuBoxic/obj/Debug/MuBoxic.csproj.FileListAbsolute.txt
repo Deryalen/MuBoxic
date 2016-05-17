@@ -1,1 +1,9 @@
 C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\bin\Debug\MuBoxic.exe.config
+C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\bin\Debug\MuBoxic.exe
+C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\bin\Debug\MuBoxic.pdb
+C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\MuBoxic.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\MuBoxic.Properties.Resources.resources
+C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\MuBoxic.csproj.GenerateResource.Cache
+C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\MuBoxic.exe
+C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\MuBoxic.pdb
+C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\MuBoxic.MainWindow.resources

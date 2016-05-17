@@ -8,8 +8,9 @@ namespace MuBoxic
 {
     class Album
     {
-        public string name;
-        public int year;
-        public int songAmt;
+        public string Name { get; set; }
+        public int Year { get; set; }
+
+        public List<Song> Songs;
     }
 }

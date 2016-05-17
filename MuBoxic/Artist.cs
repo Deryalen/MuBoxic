@@ -8,7 +8,8 @@ namespace MuBoxic
 {
     class Artist
     {
-        public string name;
-        public string country;
+        public string Name { get; set; }
+        public string Country { get; set; }
+        public string Year { get; set; }
     }
 }
