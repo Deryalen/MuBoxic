@@ -315,7 +315,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Title1.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <metadata name="Title2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -354,7 +354,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Title2.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="settings.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
@@ -478,11 +478,54 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="add.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="add.Font" type="System.Drawing.Font, System.Drawing">
+    <value>AR CARTER, 26.2499981pt</value>
+  </data>
+  <data name="add.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJ
+        TUUH4AUSFBgb+zH7XwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACLSURBVFhH
+        7ZdBCoAwDAT7qz7eH/QlfkJiFsxtMbEU6mEXBkJYdMBDsJnZLN0ZD5hZJ4UuixxOBDPrpNBlkdOJYGad
+        FLosIgEJSEACElgmgEuGY4KHfOFyIphZ5w28s0MA53RXxi8Etn+CWfCQCGbWSaHLIhKQgAQkIIHtAjgm
+        Ecysk0KXRRb8nlu7AdPW0RXYKf7qAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="add.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="add.Location" type="System.Drawing.Point, System.Drawing">
+    <value>735, 322</value>
+  </data>
+  <data name="add.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="add.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 70</value>
+  </data>
+  <data name="add.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;add.Name" xml:space="preserve">
+    <value>add</value>
+  </data>
+  <data name="&gt;&gt;add.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;add.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;add.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -494,6 +537,9 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>804, 392</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Form1</value>

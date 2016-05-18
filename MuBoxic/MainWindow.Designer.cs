@@ -36,10 +36,11 @@
             this.Title1 = new System.Windows.Forms.TextBox();
             this.Title2 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel2 = new System.Windows.Forms.Panel();
             this.settings = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.add = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +53,7 @@
             this.albums.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.albums.Name = "albums";
             this.albums.UseVisualStyleBackColor = false;
-            this.albums.Click += new System.EventHandler(this.AlbumsButton_Click);
+            this.albums.Click += new System.EventHandler(this.albums_Click);
             // 
             // artists
             // 
@@ -62,6 +63,7 @@
             this.artists.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.artists.Name = "artists";
             this.artists.UseVisualStyleBackColor = false;
+            this.artists.Click += new System.EventHandler(this.artists_Click);
             // 
             // songs
             // 
@@ -71,7 +73,7 @@
             this.songs.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.songs.Name = "songs";
             this.songs.UseVisualStyleBackColor = false;
-            this.songs.Click += new System.EventHandler(this.button2_Click);
+            this.songs.Click += new System.EventHandler(this.songs_Click);
             // 
             // search
             // 
@@ -81,7 +83,7 @@
             this.search.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.search.Name = "search";
             this.search.UseVisualStyleBackColor = false;
-            this.search.Click += new System.EventHandler(this.button3_Click);
+            this.search.Click += new System.EventHandler(this.search_Click);
             // 
             // Title1
             // 
@@ -115,15 +117,6 @@
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(169)))), ((int)(((byte)(156)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            resources.ApplyResources(this.button4, "button4");
-            this.button4.Name = "button4";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.settings);
@@ -139,12 +132,33 @@
             this.settings.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.settings.Name = "settings";
             this.settings.UseVisualStyleBackColor = false;
+            this.settings.Click += new System.EventHandler(this.settings_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(169)))), ((int)(((byte)(156)))));
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.button4, "button4");
+            this.button4.Name = "button4";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // add
+            // 
+            this.add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(81)))), ((int)(((byte)(87)))));
+            this.add.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.add, "add");
+            this.add.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.add.Name = "add";
+            this.add.UseVisualStyleBackColor = false;
+            this.add.Click += new System.EventHandler(this.add_Click);
             // 
             // MainWindow
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.add);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Title2);
             this.Controls.Add(this.Title1);
@@ -171,6 +185,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button settings;
+        private System.Windows.Forms.Button add;
     }
 }
 

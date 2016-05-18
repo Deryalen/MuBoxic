@@ -17,24 +17,40 @@ namespace MuBoxic
             InitializeComponent();
         }
 
-        private void AlbumsButton_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void MainWindow_Load(object sender, EventArgs e)
         {
            
+        }
+        
+        private void add_Click(object sender, EventArgs e)
+        {
+            addSong add = new addSong();
+            add.Show();
+        }
+
+        private void artists_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void albums_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void songs_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void search_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void settings_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
