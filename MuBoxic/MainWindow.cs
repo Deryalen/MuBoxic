@@ -31,6 +31,10 @@ namespace MuBoxic
         {
 
         }
-        
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

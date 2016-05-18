@@ -7,3 +7,6 @@ C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\Mu
 C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\MuBoxic.exe
 C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\MuBoxic.pdb
 C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\MuBoxic.MainWindow.resources
+C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\bin\Debug\en\MuBoxic.resources.dll
+C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\MuBoxic.MainWindow.en.resources
+C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\en\MuBoxic.resources.dll
