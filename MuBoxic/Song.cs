@@ -10,12 +10,12 @@ namespace MuBoxic
     {
         public static int id = 0;
         public string Name { get; set; }
-        public int Year { get; set; }
+        public string Date { get; set; }
 
-        public Song(string name, int year)
+        public Song(string name, string year)
         {
             Name = name;
-            Year = year;
+            Date = year;
             id++;
         }
     }

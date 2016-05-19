@@ -25,7 +25,6 @@ namespace MuBoxic
 
         private void submit_Click(object sender, EventArgs e)
         {
-
         }
     }
 }
