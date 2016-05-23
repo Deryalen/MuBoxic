@@ -58,17 +58,16 @@ namespace MuBoxic
                 serializer.Serialize(toFile, cacheList);
                 toFile.Close();
             }
+
+            string message = "Done!";
+            DialogResult result = MessageBox.Show(message);
+            name.Text = "";
         }
 
         private void addSong_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
-            foreach(Song s in cacheList)
-            {
-                string message = s.Name;
-                DialogResult result;
-                result = MessageBox.Show(message);
-            }
+            string message = "Thank you! The songs were added!";
+            DialogResult result = MessageBox.Show(message);
         }
     }
 }
