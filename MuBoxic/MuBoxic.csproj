@@ -55,7 +55,6 @@
     </Compile>
     <Compile Include="Album.cs" />
     <Compile Include="Artist.cs" />
-    <Compile Include="DataManager.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>

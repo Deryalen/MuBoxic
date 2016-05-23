@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MuBoxic
 {
+    [Serializable()]
     class Album
     {
         public static int id = 0;
@@ -21,5 +22,11 @@ namespace MuBoxic
             Songs = songs;
             id++;
         }
+    }
+
+    [Serializable()]
+    class AlbumList : List<Album>
+    {
+
     }
 }
