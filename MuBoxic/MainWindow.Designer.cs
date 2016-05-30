@@ -37,18 +37,26 @@
             this.Title1 = new System.Windows.Forms.TextBox();
             this.Title2 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.addArtist = new System.Windows.Forms.Button();
+            this.addAlbum = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.settings = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.add = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.addSong = new System.Windows.Forms.Button();
+            this.songView = new System.Windows.Forms.DataGridView();
+            this.albumView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.albumListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.songListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.songView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.albumView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.albumListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.songListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,13 +124,34 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.addArtist);
+            this.panel1.Controls.Add(this.addAlbum);
             this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.addSong);
             this.panel1.Controls.Add(this.songs);
             this.panel1.Controls.Add(this.albums);
-            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.artists);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
+            // 
+            // addArtist
+            // 
+            this.addArtist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(143)))));
+            this.addArtist.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.addArtist, "addArtist");
+            this.addArtist.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.addArtist.Name = "addArtist";
+            this.addArtist.UseVisualStyleBackColor = false;
+            // 
+            // addAlbum
+            // 
+            this.addAlbum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(150)))), ((int)(((byte)(177)))));
+            this.addAlbum.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.addAlbum, "addAlbum");
+            this.addAlbum.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.addAlbum.Name = "addAlbum";
+            this.addAlbum.UseVisualStyleBackColor = false;
+            this.addAlbum.Click += new System.EventHandler(this.addAlbum_Click);
             // 
             // panel2
             // 
@@ -141,38 +170,82 @@
             this.settings.UseVisualStyleBackColor = false;
             this.settings.Click += new System.EventHandler(this.settings_Click);
             // 
-            // button4
+            // addSong
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(169)))), ((int)(((byte)(156)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            resources.ApplyResources(this.button4, "button4");
-            this.button4.Name = "button4";
-            this.button4.UseVisualStyleBackColor = false;
+            this.addSong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(169)))), ((int)(((byte)(156)))));
+            this.addSong.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.addSong, "addSong");
+            this.addSong.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.addSong.Name = "addSong";
+            this.addSong.UseVisualStyleBackColor = false;
+            this.addSong.Click += new System.EventHandler(this.add_Click);
             // 
-            // add
+            // songView
             // 
-            this.add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(81)))), ((int)(((byte)(87)))));
-            this.add.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.add, "add");
-            this.add.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.add.Name = "add";
-            this.add.UseVisualStyleBackColor = false;
-            this.add.Click += new System.EventHandler(this.add_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.songView.AllowUserToAddRows = false;
+            this.songView.AllowUserToDeleteRows = false;
+            resources.ApplyResources(this.songView, "songView");
+            this.songView.AutoGenerateColumns = false;
+            this.songView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.songView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.songView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
             this.nameDataGridViewTextBoxColumn,
             this.dateDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.songListBindingSource;
-            resources.ApplyResources(this.dataGridView1, "dataGridView1");
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
+            this.songView.DataSource = this.songListBindingSource;
+            this.songView.Name = "songView";
+            this.songView.ReadOnly = true;
+            // 
+            // albumView
+            // 
+            this.albumView.AllowUserToAddRows = false;
+            this.albumView.AllowUserToDeleteRows = false;
+            this.albumView.AutoGenerateColumns = false;
+            this.albumView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.albumView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.albumView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.nameDataGridViewTextBoxColumn1,
+            this.yearDataGridViewTextBoxColumn});
+            this.albumView.DataSource = this.albumListBindingSource;
+            resources.ApplyResources(this.albumView, "albumView");
+            this.albumView.Name = "albumView";
+            this.albumView.ReadOnly = true;
+            this.albumView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.albumView_CellDoubleClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn1, "dataGridViewTextBoxColumn1");
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            resources.ApplyResources(this.Id, "Id");
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            resources.ApplyResources(this.nameDataGridViewTextBoxColumn1, "nameDataGridViewTextBoxColumn1");
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // yearDataGridViewTextBoxColumn
+            // 
+            this.yearDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            resources.ApplyResources(this.yearDataGridViewTextBoxColumn, "yearDataGridViewTextBoxColumn");
+            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
+            this.yearDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // albumListBindingSource
+            // 
+            this.albumListBindingSource.DataSource = typeof(MuBoxic.AlbumList);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -181,7 +254,6 @@
             resources.ApplyResources(this.nameDataGridViewTextBoxColumn, "nameDataGridViewTextBoxColumn");
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // dateDataGridViewTextBoxColumn
             // 
@@ -189,7 +261,6 @@
             resources.ApplyResources(this.dateDataGridViewTextBoxColumn, "dateDataGridViewTextBoxColumn");
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
             this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // songListBindingSource
             // 
@@ -200,17 +271,18 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.add);
+            this.Controls.Add(this.albumView);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Title2);
             this.Controls.Add(this.Title1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Controls.Add(this.songView);
             this.Name = "MainWindow";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.songView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.albumView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.albumListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.songListBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -226,15 +298,21 @@
         private System.Windows.Forms.TextBox Title1;
         private System.Windows.Forms.TextBox Title2;
         private System.Windows.Forms.Panel panel1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button settings;
-        private System.Windows.Forms.Button add;
+        private System.Windows.Forms.Button addSong;
+        private System.Windows.Forms.DataGridView songView;
+        private System.Windows.Forms.Button addArtist;
+        private System.Windows.Forms.Button addAlbum;
+        private System.Windows.Forms.DataGridView albumView;
         private System.Windows.Forms.BindingSource songListBindingSource;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource albumListBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
     }
 }
 

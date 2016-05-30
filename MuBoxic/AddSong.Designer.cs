@@ -1,6 +1,6 @@
 ﻿namespace MuBoxic
 {
-    partial class addSong
+    partial class AddSong
     {
         /// <summary>
         /// Required designer variable.
@@ -53,7 +53,6 @@
             this.date.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(169)))), ((int)(((byte)(156)))));
             this.date.CalendarTrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(169)))), ((int)(((byte)(156)))));
             this.date.Cursor = System.Windows.Forms.Cursors.Default;
-            this.date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.date.Location = new System.Drawing.Point(15, 80);
             this.date.Name = "date";
             this.date.Size = new System.Drawing.Size(213, 20);
@@ -96,7 +95,7 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Date";
             // 
-            // addSong
+            // AddSong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -107,10 +106,9 @@
             this.Controls.Add(this.submit);
             this.Controls.Add(this.date);
             this.Controls.Add(this.name);
-            this.Name = "addSong";
+            this.Name = "AddSong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.addSong_FormClosed);
+            this.Text = "Add Song";
             this.ResumeLayout(false);
             this.PerformLayout();
 

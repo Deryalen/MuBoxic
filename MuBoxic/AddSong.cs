@@ -1,32 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace MuBoxic
 {
-    public partial class addSong : Form
+    public partial class AddSong : Form
     {
-        const string FileName = @"Database.bin";
+        const string FileName = @"SongBase.bin";
 
-        public addSong()
+        public AddSong()
         {
             InitializeComponent();
         }
         
-        private SongList cacheList = new SongList();
-
-        private void addSong_Load(object sender, EventArgs e)
-        {
-
-        }
+        private SongList _cacheList = new SongList();
 
         private void submit_Click(object sender, EventArgs e)
         {
@@ -34,7 +22,7 @@ namespace MuBoxic
             {
                 Stream fromFile = File.Open(FileName, FileMode.Open);
                 BinaryFormatter deserializer = new BinaryFormatter();
-                cacheList = (SongList)deserializer.Deserialize(fromFile);
+                _cacheList = (SongList)deserializer.Deserialize(fromFile);
                 fromFile.Close();
             }
             else
@@ -42,32 +30,33 @@ namespace MuBoxic
                 Stream fromfile = File.Create(FileName);
                 fromfile.Close();
             }
-            Song cacheSong = new Song(name.Text, date.Value);
-            cacheList.Add(cacheSong);
+
+            if (name.Text.Length != 0)
+            {
+                Song cacheSong = new Song(name.Text, date.Value.Date);
+                _cacheList.Add(cacheSong);
+                MessageBox.Show(@"Done!");
+                name.Text = "";
+            }
+            else
+            {
+                MessageBox.Show(@"Enter the name of the song");
+            }
+
             if (File.Exists(FileName))
             {
                 FileStream toFile = File.OpenWrite(FileName);
                 BinaryFormatter serializer = new BinaryFormatter();
-                serializer.Serialize(toFile, cacheList);
+                serializer.Serialize(toFile, _cacheList);
                 toFile.Close();
             }
             else
             {
                 FileStream toFile = File.Create(FileName);
                 BinaryFormatter serializer = new BinaryFormatter();
-                serializer.Serialize(toFile, cacheList);
+                serializer.Serialize(toFile, _cacheList);
                 toFile.Close();
             }
-
-            string message = "Done!";
-            DialogResult result = MessageBox.Show(message);
-            name.Text = "";
-        }
-
-        private void addSong_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            string message = "Thank you! The songs were added!";
-            DialogResult result = MessageBox.Show(message);
         }
     }
 }

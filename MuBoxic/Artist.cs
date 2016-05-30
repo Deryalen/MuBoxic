@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MuBoxic
 {
     [Serializable()]
     class Artist
     {
-        public static int id = 0;
+        public static int Id = 1;
         public string Name { get; set; }
         public string Country { get; set; }
         public DateTime Year { get; set; }
@@ -22,13 +19,14 @@ namespace MuBoxic
             Country = country;
             Year = year;
             Albums = albums;
-            id++;
+            Id++;
         }
 
-        [Serializable()]
-        class ArtistList : List<Artist>
-        {
+        
+    }
+    [Serializable()]
+    class ArtistList : List<Artist>
+    {
             
-        }
     }
 }

@@ -1,32 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MuBoxic
 {
     [Serializable()]
-    class Album
+    public class Album
     {
-        public static int id = 0;
+        public int Id { get; set; }
         public string Name { get; set; }
-        public DateTime Year { get; set; }
+        public DateTime Date { get; set; }
 
-        public readonly List<Song> Songs;
+        public List<Song> Songs;
 
-        public Album (string name, DateTime year, List<Song> songs)
+        public Album (string name, DateTime date, List<Song> songs)
         {
             Name = name;
-            Year = year;
+            Date = date;
             Songs = songs;
-            id++;
         }
     }
 
     [Serializable()]
-    class AlbumList : List<Album>
+    public class AlbumList : List<Album>
     {
-
+        public int IdCounter;
+        public new void Add(Album album)
+        {
+            base.Add(album);
+            album.Id = IdCounter;
+            IdCounter++;
+        }
     }
 }

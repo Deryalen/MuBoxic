@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MuBoxic
@@ -23,13 +16,18 @@ namespace MuBoxic
 
         }
 
-        SongList cacheList = new SongList();
-        const string FileName = @"Database.bin";
+        SongList _songCacheList = new SongList();
+        AlbumList _albumCacheList = new AlbumList();
+        ArtistList _artistCacheList = new ArtistList();
+
+        const string SongBase = @"SongBase.bin";
+        const string AlbumBase = @"AlbumBase.bin";
+        const string ArtistBase = @"ArtistBase.bin";
 
         private void add_Click(object sender, EventArgs e)
         {
-            addSong add = new addSong();
-            add.Show();
+            AddSong song = new AddSong();
+            song.Show();
         }
 
         private void artists_Click(object sender, EventArgs e)
@@ -39,58 +37,47 @@ namespace MuBoxic
 
         private void albums_Click(object sender, EventArgs e)
         {
-
+            Stream fromFile = File.Open(AlbumBase, FileMode.Open);
+            BinaryFormatter deserializer = new BinaryFormatter();
+            _albumCacheList = (AlbumList) deserializer.Deserialize(fromFile);
+            fromFile.Close();
+            songView.Hide();
+            albumView.Show();
+            albumView.DataSource = _albumCacheList;
         }
 
         private void songs_Click(object sender, EventArgs e)
         {
-            Stream fromFile = File.Open(FileName, FileMode.Open);
+            Stream fromFile = File.Open(SongBase, FileMode.Open);
             BinaryFormatter deserializer = new BinaryFormatter();
-            cacheList = (SongList)deserializer.Deserialize(fromFile);
+            _songCacheList = (SongList)deserializer.Deserialize(fromFile);
             fromFile.Close();
-            dataGridView1.Show();
-            dataGridView1.DataSource = cacheList;
-            DataGridViewColumn newCol = dataGridView1.Columns.GetColumnCount(DataGridViewElementStates.Selected) == 1 ? dataGridView1.SelectedColumns[0] : null;
-
-            DataGridViewColumn oldCol = dataGridView1.SortedColumn;
-            ListSortDirection direction;
-
-            if(oldCol != null)
-            {
-                if(oldCol == newCol && dataGridView1.SortOrder == SortOrder.Ascending)
-                {
-                    direction = ListSortDirection.Descending;
-                }
-                else
-                {
-                    direction = ListSortDirection.Ascending;
-                    oldCol.HeaderCell.SortGlyphDirection = SortOrder.None;
-                }
-            }
-            else
-            {
-                direction = ListSortDirection.Ascending;
-            }
-
-            if(newCol == null)
-            {
-                MessageBox.Show("Select a column", "Error: invalid selection", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                dataGridView1.Sort(newCol, direction);
-                newCol.HeaderCell.SortGlyphDirection = direction == ListSortDirection.Ascending ? SortOrder.Ascending : SortOrder.Descending;
-            }
+            albumView.Hide();
+            songView.Show();
+            songView.DataSource = _songCacheList;
         }
 
         private void search_Click(object sender, EventArgs e)
         {
-            songListBindingSource.Filter ="[Name]" + 
+
         }
 
         private void settings_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void addAlbum_Click(object sender, EventArgs e)
+        {
+            AddAlbum album = new AddAlbum();
+            album.Show();
+        }
+
+        private void albumView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Album cache = (Album) albumView.SelectedCells[0].OwningRow.DataBoundItem;
+            AlbumInfo info = new AlbumInfo(cache);
+            info.Show();
         }
     }
 }

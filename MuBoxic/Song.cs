@@ -1,30 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MuBoxic
 {
     [Serializable()]
     public class Song
     {
-        public static int id = 0;
         public string Name { get; set; }
         public DateTime Date { get; set; }
+        public int Id { get; set; }
 
         public Song(string name, DateTime year)
         {
             Name = name;
             Date = year;
-            id++;
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 
     [Serializable()]
     public class SongList : List<Song>
     {
+        public int IdCounter;
+
+        public new void Add(Song song)
+        {
+            base.Add(song);
+            song.Id = IdCounter;
+            IdCounter++;
+        }
     }
 }
