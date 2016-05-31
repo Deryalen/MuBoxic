@@ -10,13 +10,18 @@ namespace MuBoxic
         public string Name { get; set; }
         public DateTime Date { get; set; }
 
-        public List<Song> Songs;
+        public SongList Songs;
 
-        public Album (string name, DateTime date, List<Song> songs)
+        public Album (string name, DateTime date, SongList songs)
         {
             Name = name;
             Date = date;
             Songs = songs;
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 

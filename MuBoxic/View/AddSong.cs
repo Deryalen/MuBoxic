@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms;
 
-namespace MuBoxic
+namespace MuBoxic.View
 {
     public partial class AddSong : Form
     {

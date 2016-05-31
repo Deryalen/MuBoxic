@@ -1,4 +1,4 @@
-﻿namespace MuBoxic
+﻿namespace MuBoxic.View
 {
     partial class AddSong
     {
