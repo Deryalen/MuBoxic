@@ -10,6 +10,8 @@ namespace MuBoxic
         public DateTime Date { get; set; }
         public int Id { get; set; }
 
+        public static int DeletedCounter { get; set; }
+
         public Song(string name, DateTime year)
         {
             Name = name;
@@ -32,6 +34,18 @@ namespace MuBoxic
             base.Add(song);
             song.Id = IdCounter;
             IdCounter++;
+        }
+
+        public void AddToSecondary(Song song)
+        {
+            base.Add(song);
+        }
+
+        public new void RemoveAt(int index)
+        {
+            base.RemoveAt(index);
+            IdCounter--;
+            Song.DeletedCounter++;
         }
     }
 }

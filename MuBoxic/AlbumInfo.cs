@@ -5,19 +5,19 @@ namespace MuBoxic
 {
     public partial class AlbumInfo : Form
     {
-        private Album toShow;
+        private readonly Album _toShowAlbum;
         public AlbumInfo(Album cache)
         {
-            toShow = cache;
+            _toShowAlbum = cache;
             InitializeComponent();
         }
 
         private void AlbumInfo_Load(object sender, EventArgs e)
         {
-            name.Text = toShow.Name;
-            date.Value = toShow.Date;
-            id.Text = @"#" + toShow.Id;
-            songs.DataSource = toShow.Songs;
+            name.Text = _toShowAlbum.Name;
+            date.Value = _toShowAlbum.Date;
+            id.Text = @"#" + _toShowAlbum.Id;
+            songs.DataSource = _toShowAlbum.Songs;
         }
     }
 }

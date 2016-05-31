@@ -13,3 +13,4 @@ C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\en
 C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\MuBoxic.addSong.resources
 C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\MuBoxic.AddAlbum.resources
 C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\MuBoxic.AlbumInfo.resources
+C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\MuBoxic.SongInfo.resources

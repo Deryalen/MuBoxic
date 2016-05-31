@@ -43,9 +43,16 @@
             this.settings = new System.Windows.Forms.Button();
             this.addSong = new System.Windows.Forms.Button();
             this.songView = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showInfoOrEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.albumView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.refresh = new System.Windows.Forms.Button();
+            this.searchAlbums = new System.Windows.Forms.Button();
+            this.searchArtists = new System.Windows.Forms.Button();
+            this.searchBox = new System.Windows.Forms.TextBox();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.albumListBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -55,6 +62,7 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.songView)).BeginInit();
+            this.cellContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.albumView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.songListBindingSource)).BeginInit();
@@ -124,6 +132,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.searchArtists);
+            this.panel1.Controls.Add(this.searchAlbums);
             this.panel1.Controls.Add(this.addArtist);
             this.panel1.Controls.Add(this.addAlbum);
             this.panel1.Controls.Add(this.panel2);
@@ -195,11 +205,44 @@
             this.songView.DataSource = this.songListBindingSource;
             this.songView.Name = "songView";
             this.songView.ReadOnly = true;
+            this.songView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.songView_CellDoubleClick);
+            // 
+            // Id
+            // 
+            this.Id.ContextMenuStrip = this.cellContextMenu;
+            this.Id.DataPropertyName = "Id";
+            resources.ApplyResources(this.Id, "Id");
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // cellContextMenu
+            // 
+            this.cellContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showInfoOrEditToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.cellContextMenu.Name = "cellContextMenu";
+            this.cellContextMenu.ShowImageMargin = false;
+            resources.ApplyResources(this.cellContextMenu, "cellContextMenu");
+            this.cellContextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.cellContextMenu_Opening);
+            // 
+            // showInfoOrEditToolStripMenuItem
+            // 
+            this.showInfoOrEditToolStripMenuItem.Name = "showInfoOrEditToolStripMenuItem";
+            resources.ApplyResources(this.showInfoOrEditToolStripMenuItem, "showInfoOrEditToolStripMenuItem");
+            this.showInfoOrEditToolStripMenuItem.MouseDown += new System.Windows.Forms.MouseEventHandler(this.showInfoOrEditToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            resources.ApplyResources(this.deleteToolStripMenuItem, "deleteToolStripMenuItem");
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // albumView
             // 
             this.albumView.AllowUserToAddRows = false;
             this.albumView.AllowUserToDeleteRows = false;
+            this.albumView.AllowUserToResizeColumns = false;
+            this.albumView.AllowUserToResizeRows = false;
             this.albumView.AutoGenerateColumns = false;
             this.albumView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.albumView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -221,12 +264,30 @@
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // Id
+            // refresh
             // 
-            this.Id.DataPropertyName = "Id";
-            resources.ApplyResources(this.Id, "Id");
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
+            resources.ApplyResources(this.refresh, "refresh");
+            this.refresh.Name = "refresh";
+            this.refresh.UseVisualStyleBackColor = true;
+            this.refresh.Click += new System.EventHandler(this.refresh_Click);
+            // 
+            // searchAlbums
+            // 
+            resources.ApplyResources(this.searchAlbums, "searchAlbums");
+            this.searchAlbums.Name = "searchAlbums";
+            this.searchAlbums.UseVisualStyleBackColor = true;
+            // 
+            // searchArtists
+            // 
+            resources.ApplyResources(this.searchArtists, "searchArtists");
+            this.searchArtists.Name = "searchArtists";
+            this.searchArtists.UseVisualStyleBackColor = true;
+            // 
+            // searchBox
+            // 
+            resources.ApplyResources(this.searchBox, "searchBox");
+            this.searchBox.Name = "searchBox";
+            this.searchBox.TextChanged += new System.EventHandler(this.SearchItem);
             // 
             // nameDataGridViewTextBoxColumn1
             // 
@@ -250,6 +311,7 @@
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.ContextMenuStrip = this.cellContextMenu;
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             resources.ApplyResources(this.nameDataGridViewTextBoxColumn, "nameDataGridViewTextBoxColumn");
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
@@ -257,6 +319,7 @@
             // 
             // dateDataGridViewTextBoxColumn
             // 
+            this.dateDataGridViewTextBoxColumn.ContextMenuStrip = this.cellContextMenu;
             this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
             resources.ApplyResources(this.dateDataGridViewTextBoxColumn, "dateDataGridViewTextBoxColumn");
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
@@ -271,6 +334,8 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.searchBox);
+            this.Controls.Add(this.refresh);
             this.Controls.Add(this.albumView);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Title2);
@@ -281,6 +346,7 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.songView)).EndInit();
+            this.cellContextMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.albumView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.songListBindingSource)).EndInit();
@@ -307,12 +373,19 @@
         private System.Windows.Forms.DataGridView albumView;
         private System.Windows.Forms.BindingSource songListBindingSource;
         private System.Windows.Forms.BindingSource albumListBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.ContextMenuStrip cellContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem showInfoOrEditToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button refresh;
+        private System.Windows.Forms.Button searchArtists;
+        private System.Windows.Forms.Button searchAlbums;
+        private System.Windows.Forms.TextBox searchBox;
     }
 }
 

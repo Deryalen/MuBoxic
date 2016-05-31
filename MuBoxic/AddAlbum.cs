@@ -44,7 +44,7 @@ namespace MuBoxic
 
             foreach (Song song in songs.CheckedItems)
             {
-                _songCacheList.Add(song);
+                _songCacheList.AddToSecondary(song);
             }
 
             if (File.Exists(AlbumBase))

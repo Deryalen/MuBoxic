@@ -33,10 +33,25 @@ namespace MuBoxic
 
             if (name.Text.Length != 0)
             {
-                Song cacheSong = new Song(name.Text, date.Value.Date);
-                _cacheList.Add(cacheSong);
-                MessageBox.Show(@"Done!");
-                name.Text = "";
+                int spaces = 0;
+                for (int i = 0; i < name.TextLength; i++)
+                {
+                    if (name.Text[i] == ' ')
+                    {
+                        spaces++;
+                    }
+                }
+                if (spaces != name.TextLength)
+                {
+                    Song cacheSong = new Song(name.Text, date.Value.Date);
+                    _cacheList.Add(cacheSong);
+                    MessageBox.Show(@"Done!");
+                    name.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show(@"Enter a correct name");
+                }
             }
             else
             {

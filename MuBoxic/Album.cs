@@ -30,5 +30,10 @@ namespace MuBoxic
             album.Id = IdCounter;
             IdCounter++;
         }
+
+        public void AddToSecondary(Album album)
+        {
+            base.Add(album);
+        }
     }
 }
