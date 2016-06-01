@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Globalization;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -13,10 +14,6 @@ namespace MuBoxic.View
         {
             InitializeComponent();
         }
-        private void MainWindow_Load(object sender, EventArgs e)
-        {
-
-        }
 
         SongList _songCacheList = new SongList();
         AlbumList _albumCacheList = new AlbumList();
@@ -26,7 +23,7 @@ namespace MuBoxic.View
         const string AlbumBase = @"AlbumBase.bin";
         const string ArtistBase = @"ArtistBase.bin";
 
-        private void addSong_Slick(object sender, EventArgs e)
+        private void addSong_Click(object sender, EventArgs e)
         {
             AddSong song = new AddSong();
             song.ShowDialog();
@@ -34,27 +31,48 @@ namespace MuBoxic.View
 
         private void artists_Click(object sender, EventArgs e)
         {
-
+            if (File.Exists(ArtistBase))
+            {
+                Stream artistFromFile = File.Open(ArtistBase, FileMode.Open);
+                BinaryFormatter artistDeserializer = new BinaryFormatter();
+                _artistCacheList = (ArtistList) artistDeserializer.Deserialize(artistFromFile);
+                artistFromFile.Close();
+                if (_artistCacheList.Count != 0)
+                {
+                    songView.Hide();
+                    albumView.Hide();
+                    artistView.Show();
+                    artistView.DataSource = _artistCacheList;
+                }
+                else
+                {
+                    MessageBox.Show(@"There are no artists. Add some!");
+                }
+            }
+            else
+            {
+                MessageBox.Show(@"There are no artists. Add some!");
+            }
         }
 
         private void albums_Click(object sender, EventArgs e)
         {
             if (File.Exists(AlbumBase))
             {
-                Stream fromFile = File.Open(AlbumBase, FileMode.Open);
-                BinaryFormatter deserializer = new BinaryFormatter();
-                _albumCacheList = (AlbumList) deserializer.Deserialize(fromFile);
-                fromFile.Close();
+                Stream albumFroFile = File.Open(AlbumBase, FileMode.Open);
+                BinaryFormatter albumDeserializer = new BinaryFormatter();
+                _albumCacheList = (AlbumList) albumDeserializer.Deserialize(albumFroFile);
+                albumFroFile.Close();
                 if (_albumCacheList.Count != 0)
                 {
                     songView.Hide();
+                    artistView.Hide();
                     albumView.Show();
                     albumView.DataSource = _albumCacheList;
                 }
                 else
                 {
                     MessageBox.Show(@"There are no albums. Add some!");
-                    albumView.Hide();
                 }
             }
             else
@@ -75,6 +93,7 @@ namespace MuBoxic.View
                 if (_songCacheList.Count != 0)
                 {
                     albumView.Hide();
+                    artistView.Hide();
                     songView.Show();
                     songView.DataSource = _songCacheList;
                 }
@@ -92,7 +111,8 @@ namespace MuBoxic.View
 
         private void settings_Click(object sender, EventArgs e)
         {
-
+            InfoForm info = new InfoForm();
+            info.Show();
         }
 
         private void addAlbum_Click(object sender, EventArgs e)
@@ -191,6 +211,14 @@ namespace MuBoxic.View
                 albumsStream.Close();
                 albumView.DataSource = _albumCacheList;
             }
+            if (File.Exists(ArtistBase))
+            {
+                Stream artistStream = File.Open(ArtistBase, FileMode.Open);
+                BinaryFormatter deserializerArtists = new BinaryFormatter();
+                _artistCacheList = (ArtistList) deserializerArtists.Deserialize(artistStream);
+                artistStream.Close();
+                artistView.DataSource = _artistCacheList;
+            }
         }
 
         private void SearchItem(object sender, EventArgs e)
@@ -200,6 +228,7 @@ namespace MuBoxic.View
             {
                 songView.DataSource = _songCacheList;
                 albumView.DataSource = _albumCacheList;
+                artistView.DataSource = _artistCacheList;
             }
             else if (songView.Visible)
             {
@@ -227,6 +256,20 @@ namespace MuBoxic.View
                 }
                 albumView.DataSource = searchResult;
             }
+            else if (artistView.Visible)
+            {
+                ArtistList searchResult = new ArtistList();
+                foreach (Artist artist in _artistCacheList)
+                {
+                    if (artist.Name.ToLower().IndexOf(query, StringComparison.Ordinal) != -1
+                        || artist.Country.ToLower().IndexOf(query, StringComparison.Ordinal) != -1
+                        || Convert.ToString(artist.Id).IndexOf(query, StringComparison.Ordinal) != -1
+                        || Convert.ToString(artist.Date, CultureInfo.CurrentCulture)
+                        .IndexOf(query, StringComparison.Ordinal) != -1)
+                        searchResult.AddToSecondary(artist);
+                }
+                artistView.DataSource = searchResult;
+            }
         }
 
         private void albumView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -249,6 +292,128 @@ namespace MuBoxic.View
             Album cache = (Album)albumView.SelectedCells[0].OwningRow.DataBoundItem;
             AlbumInfo info = new AlbumInfo(cache);
             info.ShowDialog();
+        }
+
+        private void cellContextMenuAlbum_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            var selected = albumView.PointToClient(Cursor.Position);
+            DataGridView.HitTestInfo selectedCell = albumView.HitTest(selected.X, selected.Y);
+            if (selectedCell.Type == DataGridViewHitTestType.Cell)
+            {
+                albumView.ClearSelection();
+                albumView[selectedCell.ColumnIndex, selectedCell.RowIndex].Selected = true;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void addArtist_Click(object sender, EventArgs e)
+        {
+            AddArtist artist = new AddArtist();
+            artist.ShowDialog();
+        }
+
+        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Album cache = (Album)albumView.SelectedCells[0].OwningRow.DataBoundItem;
+
+            Stream toDelete = File.Open(AlbumBase, FileMode.Open);
+            BinaryFormatter deserializer = new BinaryFormatter();
+            _albumCacheList = (AlbumList)deserializer.Deserialize(toDelete);
+            toDelete.Close();
+
+            foreach (Album album in _albumCacheList)
+            {
+                if (album.Id == cache.Id)
+                {
+                    _albumCacheList.Remove(album);
+                    break;
+                }
+            }
+
+            FileStream toFile = File.Create(AlbumBase);
+            BinaryFormatter serializer = new BinaryFormatter();
+            serializer.Serialize(toFile, _albumCacheList);
+            toFile.Close();
+
+            if (_albumCacheList.Count != 0)
+            {
+                albumView.Refresh();
+                albumView.DataSource = _albumCacheList;
+            }
+            else
+            {
+                albumView.Hide();
+            }
+
+            MessageBox.Show(@"Sucessfully deleted!");
+        }
+
+        private void artistView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Artist cache = (Artist)artistView.SelectedCells[0].OwningRow.DataBoundItem;
+            ArtistInfo info = new ArtistInfo(cache);
+            info.ShowDialog();
+        }
+
+        private void cellContextMenuArtist_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            var selected = artistView.PointToClient(Cursor.Position);
+            DataGridView.HitTestInfo selectedCell = artistView.HitTest(selected.X, selected.Y);
+            if (selectedCell.Type == DataGridViewHitTestType.Cell)
+            {
+                artistView.ClearSelection();
+                artistView[selectedCell.ColumnIndex, selectedCell.RowIndex].Selected = true;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void showInfoOrEditToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Artist cache = (Artist)artistView.SelectedCells[0].OwningRow.DataBoundItem;
+            ArtistInfo info = new ArtistInfo(cache);
+            info.ShowDialog();
+        }
+
+        private void deleteToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Artist cache = (Artist)artistView.SelectedCells[0].OwningRow.DataBoundItem;
+
+            Stream toDelete = File.Open(ArtistBase, FileMode.Open);
+            BinaryFormatter deserializer = new BinaryFormatter();
+            _artistCacheList = (ArtistList)deserializer.Deserialize(toDelete);
+            toDelete.Close();
+
+            foreach (Artist artist in _artistCacheList)
+            {
+                if (artist.Id == cache.Id)
+                {
+                    _artistCacheList.Remove(artist);
+                    break;
+                }
+            }
+
+            FileStream toFile = File.Create(ArtistBase);
+            BinaryFormatter serializer = new BinaryFormatter();
+            serializer.Serialize(toFile, _artistCacheList);
+            toFile.Close();
+
+            if (_artistCacheList.Count != 0)
+            {
+                artistView.Refresh();
+                artistView.DataSource = _artistCacheList;
+            }
+            else
+            {
+                artistView.Hide();
+            }
+
+            MessageBox.Show(@"Sucessfully deleted!");
         }
     }
 }

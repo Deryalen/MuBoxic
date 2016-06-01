@@ -4,20 +4,27 @@ using System.Collections.Generic;
 namespace MuBoxic
 {
     [Serializable()]
-    class Artist
+    public class Artist
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Country { get; set; }
-        public DateTime Year { get; set; }
+        public DateTime Date { get; set; }
 
-        public readonly AlbumList Albums;
+        public AlbumList Albums;
+        public SongList Songs;
 
-        public Artist (string name, string country, DateTime year, AlbumList albums)
+        public Artist()
+        {
+            
+        }
+
+        public Artist(string name, string country, DateTime date, SongList songs, AlbumList albums)
         {
             Name = name;
             Country = country;
-            Year = year;
+            Date = date;
+            Songs = songs;
             Albums = albums;
         }
 
@@ -27,7 +34,7 @@ namespace MuBoxic
         }
     }
     [Serializable()]
-    class ArtistList : List<Artist>
+    public class ArtistList : List<Artist>
     {
         public int IdCounter;
 

@@ -38,6 +38,10 @@
             this.showInfoOrEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.albumView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellContextMenuAlbum = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showInfoOrEditToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.Title1 = new System.Windows.Forms.TextBox();
             this.refresh = new System.Windows.Forms.Button();
@@ -48,23 +52,31 @@
             this.addAlbum = new System.Windows.Forms.Button();
             this.addArtist = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.artistView = new System.Windows.Forms.DataGridView();
+            this.cellContextMenuArtist = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showInfoOrEditToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.artistListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.albumListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.songListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cellContextMenuAlbum = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showInfoOrEditToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.songView)).BeginInit();
             this.cellContextMenuSong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.albumView)).BeginInit();
+            this.cellContextMenuAlbum.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.artistView)).BeginInit();
+            this.cellContextMenuArtist.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.artistListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.songListBindingSource)).BeginInit();
-            this.cellContextMenuAlbum.SuspendLayout();
             this.SuspendLayout();
             // 
             // Title2
@@ -84,6 +96,7 @@
             this.settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(81)))), ((int)(((byte)(87)))));
             this.settings.FlatAppearance.BorderSize = 0;
             this.settings.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.settings.Image = global::MuBoxic.Properties.Resources.information;
             this.settings.Name = "settings";
             this.settings.UseVisualStyleBackColor = false;
             this.settings.Click += new System.EventHandler(this.settings_Click);
@@ -141,6 +154,7 @@
             this.albumView.AllowUserToDeleteRows = false;
             this.albumView.AllowUserToResizeColumns = false;
             this.albumView.AllowUserToResizeRows = false;
+            resources.ApplyResources(this.albumView, "albumView");
             this.albumView.AutoGenerateColumns = false;
             this.albumView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.albumView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -149,11 +163,40 @@
             this.nameDataGridViewTextBoxColumn1,
             this.yearDataGridViewTextBoxColumn});
             this.albumView.DataSource = this.albumListBindingSource;
-            resources.ApplyResources(this.albumView, "albumView");
             this.albumView.Name = "albumView";
             this.albumView.ReadOnly = true;
             this.albumView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.albumView_CellContentClick);
             this.albumView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.albumView_CellDoubleClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn1.ContextMenuStrip = this.cellContextMenuAlbum;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn1, "dataGridViewTextBoxColumn1");
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // cellContextMenuAlbum
+            // 
+            this.cellContextMenuAlbum.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showInfoOrEditToolStripMenuItem1,
+            this.deleteToolStripMenuItem1});
+            this.cellContextMenuAlbum.Name = "cellContextMenuAlbum";
+            resources.ApplyResources(this.cellContextMenuAlbum, "cellContextMenuAlbum");
+            this.cellContextMenuAlbum.Opening += new System.ComponentModel.CancelEventHandler(this.cellContextMenuAlbum_Opening);
+            // 
+            // showInfoOrEditToolStripMenuItem1
+            // 
+            this.showInfoOrEditToolStripMenuItem1.Name = "showInfoOrEditToolStripMenuItem1";
+            resources.ApplyResources(this.showInfoOrEditToolStripMenuItem1, "showInfoOrEditToolStripMenuItem1");
+            this.showInfoOrEditToolStripMenuItem1.Click += new System.EventHandler(this.showInfoOrEditToolStripMenuItem1_Click);
+            // 
+            // deleteToolStripMenuItem1
+            // 
+            this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
+            resources.ApplyResources(this.deleteToolStripMenuItem1, "deleteToolStripMenuItem1");
+            this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.deleteToolStripMenuItem1_Click);
             // 
             // searchBox
             // 
@@ -181,6 +224,7 @@
             resources.ApplyResources(this.refresh, "refresh");
             this.refresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(81)))), ((int)(((byte)(87)))));
             this.refresh.FlatAppearance.BorderSize = 0;
+            this.refresh.Image = global::MuBoxic.Properties.Resources.rotate;
             this.refresh.Name = "refresh";
             this.refresh.UseVisualStyleBackColor = false;
             this.refresh.Click += new System.EventHandler(this.refresh_Click);
@@ -223,7 +267,7 @@
             this.addSong.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.addSong.Name = "addSong";
             this.addSong.UseVisualStyleBackColor = false;
-            this.addSong.Click += new System.EventHandler(this.addSong_Slick);
+            this.addSong.Click += new System.EventHandler(this.addSong_Click);
             // 
             // addAlbum
             // 
@@ -243,10 +287,12 @@
             this.addArtist.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.addArtist.Name = "addArtist";
             this.addArtist.UseVisualStyleBackColor = false;
+            this.addArtist.Click += new System.EventHandler(this.addArtist_Click);
             // 
             // panel1
             // 
             resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.BackgroundImage = global::MuBoxic.Properties.Resources.panelbg1;
             this.panel1.Controls.Add(this.addArtist);
             this.panel1.Controls.Add(this.refresh);
             this.panel1.Controls.Add(this.addAlbum);
@@ -256,6 +302,99 @@
             this.panel1.Controls.Add(this.albums);
             this.panel1.Controls.Add(this.artists);
             this.panel1.Name = "panel1";
+            // 
+            // artistView
+            // 
+            this.artistView.AllowUserToAddRows = false;
+            this.artistView.AllowUserToDeleteRows = false;
+            resources.ApplyResources(this.artistView, "artistView");
+            this.artistView.AutoGenerateColumns = false;
+            this.artistView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.artistView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.artistView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn2,
+            this.countryDataGridViewTextBoxColumn,
+            this.yearDataGridViewTextBoxColumn1});
+            this.artistView.DataSource = this.artistListBindingSource;
+            this.artistView.Name = "artistView";
+            this.artistView.ReadOnly = true;
+            this.artistView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.artistView_CellDoubleClick);
+            // 
+            // cellContextMenuArtist
+            // 
+            this.cellContextMenuArtist.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showInfoOrEditToolStripMenuItem2,
+            this.deleteToolStripMenuItem2});
+            this.cellContextMenuArtist.Name = "cellContextMenuArtist";
+            resources.ApplyResources(this.cellContextMenuArtist, "cellContextMenuArtist");
+            this.cellContextMenuArtist.Opening += new System.ComponentModel.CancelEventHandler(this.cellContextMenuArtist_Opening);
+            // 
+            // showInfoOrEditToolStripMenuItem2
+            // 
+            this.showInfoOrEditToolStripMenuItem2.Name = "showInfoOrEditToolStripMenuItem2";
+            resources.ApplyResources(this.showInfoOrEditToolStripMenuItem2, "showInfoOrEditToolStripMenuItem2");
+            this.showInfoOrEditToolStripMenuItem2.Click += new System.EventHandler(this.showInfoOrEditToolStripMenuItem2_Click);
+            // 
+            // deleteToolStripMenuItem2
+            // 
+            this.deleteToolStripMenuItem2.Name = "deleteToolStripMenuItem2";
+            resources.ApplyResources(this.deleteToolStripMenuItem2, "deleteToolStripMenuItem2");
+            this.deleteToolStripMenuItem2.Click += new System.EventHandler(this.deleteToolStripMenuItem2_Click);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.ContextMenuStrip = this.cellContextMenuArtist;
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            resources.ApplyResources(this.idDataGridViewTextBoxColumn, "idDataGridViewTextBoxColumn");
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn2
+            // 
+            this.nameDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn2.ContextMenuStrip = this.cellContextMenuArtist;
+            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            resources.ApplyResources(this.nameDataGridViewTextBoxColumn2, "nameDataGridViewTextBoxColumn2");
+            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
+            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // countryDataGridViewTextBoxColumn
+            // 
+            this.countryDataGridViewTextBoxColumn.ContextMenuStrip = this.cellContextMenuArtist;
+            this.countryDataGridViewTextBoxColumn.DataPropertyName = "Country";
+            resources.ApplyResources(this.countryDataGridViewTextBoxColumn, "countryDataGridViewTextBoxColumn");
+            this.countryDataGridViewTextBoxColumn.Name = "countryDataGridViewTextBoxColumn";
+            this.countryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // yearDataGridViewTextBoxColumn1
+            // 
+            this.yearDataGridViewTextBoxColumn1.ContextMenuStrip = this.cellContextMenuArtist;
+            this.yearDataGridViewTextBoxColumn1.DataPropertyName = "Date";
+            resources.ApplyResources(this.yearDataGridViewTextBoxColumn1, "yearDataGridViewTextBoxColumn1");
+            this.yearDataGridViewTextBoxColumn1.Name = "yearDataGridViewTextBoxColumn1";
+            this.yearDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // artistListBindingSource
+            // 
+            this.artistListBindingSource.DataSource = typeof(MuBoxic.ArtistList);
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn1.ContextMenuStrip = this.cellContextMenuAlbum;
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            resources.ApplyResources(this.nameDataGridViewTextBoxColumn1, "nameDataGridViewTextBoxColumn1");
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // yearDataGridViewTextBoxColumn
+            // 
+            this.yearDataGridViewTextBoxColumn.ContextMenuStrip = this.cellContextMenuAlbum;
+            this.yearDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            resources.ApplyResources(this.yearDataGridViewTextBoxColumn, "yearDataGridViewTextBoxColumn");
+            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
+            this.yearDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // albumListBindingSource
             // 
@@ -282,71 +421,30 @@
             // 
             this.songListBindingSource.DataSource = typeof(MuBoxic.SongList);
             // 
-            // cellContextMenuAlbum
-            // 
-            this.cellContextMenuAlbum.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showInfoOrEditToolStripMenuItem1,
-            this.deleteToolStripMenuItem1});
-            this.cellContextMenuAlbum.Name = "cellContextMenuAlbum";
-            resources.ApplyResources(this.cellContextMenuAlbum, "cellContextMenuAlbum");
-            // 
-            // showInfoOrEditToolStripMenuItem1
-            // 
-            this.showInfoOrEditToolStripMenuItem1.Name = "showInfoOrEditToolStripMenuItem1";
-            resources.ApplyResources(this.showInfoOrEditToolStripMenuItem1, "showInfoOrEditToolStripMenuItem1");
-            this.showInfoOrEditToolStripMenuItem1.Click += new System.EventHandler(this.showInfoOrEditToolStripMenuItem1_Click);
-            // 
-            // deleteToolStripMenuItem1
-            // 
-            this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            resources.ApplyResources(this.deleteToolStripMenuItem1, "deleteToolStripMenuItem1");
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn1.ContextMenuStrip = this.cellContextMenuAlbum;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            resources.ApplyResources(this.dataGridViewTextBoxColumn1, "dataGridViewTextBoxColumn1");
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn1
-            // 
-            this.nameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn1.ContextMenuStrip = this.cellContextMenuAlbum;
-            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
-            resources.ApplyResources(this.nameDataGridViewTextBoxColumn1, "nameDataGridViewTextBoxColumn1");
-            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // yearDataGridViewTextBoxColumn
-            // 
-            this.yearDataGridViewTextBoxColumn.ContextMenuStrip = this.cellContextMenuAlbum;
-            this.yearDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            resources.ApplyResources(this.yearDataGridViewTextBoxColumn, "yearDataGridViewTextBoxColumn");
-            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
-            this.yearDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // MainWindow
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.Controls.Add(this.albumView);
+            this.BackgroundImage = global::MuBoxic.Properties.Resources.mainbg1;
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Title2);
             this.Controls.Add(this.Title1);
+            this.Controls.Add(this.artistView);
+            this.Controls.Add(this.albumView);
             this.Controls.Add(this.songView);
             this.Name = "MainWindow";
-            this.Load += new System.EventHandler(this.MainWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.songView)).EndInit();
             this.cellContextMenuSong.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.albumView)).EndInit();
+            this.cellContextMenuAlbum.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.artistView)).EndInit();
+            this.cellContextMenuArtist.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.artistListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.songListBindingSource)).EndInit();
-            this.cellContextMenuAlbum.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -381,6 +479,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView artistView;
+        private System.Windows.Forms.BindingSource artistListBindingSource;
+        private System.Windows.Forms.ContextMenuStrip cellContextMenuArtist;
+        private System.Windows.Forms.ToolStripMenuItem showInfoOrEditToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn1;
     }
 }
 

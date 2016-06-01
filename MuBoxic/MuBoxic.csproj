@@ -53,6 +53,12 @@
     <Compile Include="View\AddAlbum.Designer.cs">
       <DependentUpon>AddAlbum.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\AddArtist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AddArtist.Designer.cs">
+      <DependentUpon>AddArtist.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AddSong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,18 @@
       <DependentUpon>AlbumInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Artist.cs" />
+    <Compile Include="View\ArtistInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ArtistInfo.Designer.cs">
+      <DependentUpon>ArtistInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\InfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\InfoForm.Designer.cs">
+      <DependentUpon>InfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,11 +103,20 @@
     <EmbeddedResource Include="View\AddAlbum.resx">
       <DependentUpon>AddAlbum.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\AddArtist.resx">
+      <DependentUpon>AddArtist.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AddSong.resx">
       <DependentUpon>AddSong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AlbumInfo.resx">
       <DependentUpon>AlbumInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ArtistInfo.resx">
+      <DependentUpon>ArtistInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\InfoForm.resx">
+      <DependentUpon>InfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainWindow.en.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
@@ -106,11 +133,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\SongInfo.resx">
       <DependentUpon>SongInfo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\AlbumList.datasource" />
+    <None Include="Properties\DataSources\ArtistList.datasource" />
     <None Include="Properties\DataSources\Song.datasource" />
     <None Include="Properties\DataSources\SongList.datasource" />
     <None Include="Properties\Settings.settings">
@@ -125,6 +154,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\information-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\rotate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\panelbg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\mainbg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -27,8 +27,8 @@ namespace MuBoxic.View
             }
             else
             {
-                Stream fromfile = File.Create(FileName);
-                fromfile.Close();
+                Stream create = File.Create(FileName);
+                create.Close();
             }
 
             if (name.Text.Length != 0)

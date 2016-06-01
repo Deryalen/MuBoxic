@@ -14,3 +14,6 @@ C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\Mu
 C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\MuBoxic.View.MainWindow.resources
 C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\MuBoxic.View.SongInfo.resources
 C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\MuBoxic.View.MainWindow.en.resources
+C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\MuBoxic.View.AddArtist.resources
+C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\MuBoxic.View.ArtistInfo.resources
+C:\Users\user\Documents\Visual Studio 2015\Projects\MuBoxic\MuBoxic\obj\Debug\MuBoxic.View.InfoForm.resources

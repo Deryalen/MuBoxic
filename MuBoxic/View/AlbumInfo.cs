@@ -74,7 +74,7 @@ namespace MuBoxic.View
                     _toEditAlbumList = (AlbumList) deserializer.Deserialize(toEdit);
                     toEdit.Close();
 
-                    foreach (Album album in (_toEditAlbumList))
+                    foreach (Album album in _toEditAlbumList)
                     {
                         if (_toShowAlbum.Id == album.Id)
                         {

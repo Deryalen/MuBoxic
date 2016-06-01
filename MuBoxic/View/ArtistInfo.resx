@@ -117,35 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="cellContextMenuSongInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>192, 17</value>
+  <metadata name="cellContextMenuAlbumInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>375, 17</value>
   </metadata>
-  <metadata name="songListBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="albumListBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAEAEBAAAAAAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAA
-        AAD///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af//
-        /wH///8B////Af///wH///8B////Af///wFtpO0Pc5zkXXKV4aNyleGjc5zkXW2k7Q////8B////Af//
-        /wH///8B////Af///wH///8B////Af///wFymOGPdXba/3dw2f93cNn/d3DZ/3dw2f91dtr/cordpf//
-        /wH///8B////Af///wH///8B////Af///wFzjN/Vd3DZ/3dw2f93cNn/d3DZ/3dw2f93cNn/cmvU/2li
-        y/9vb9L1////Af///wH///8B////Af///wFymOGPd3DZ/3dw2f93cNn/d3DZ/3dw2f93cNn/cWrR/3Fq
-        zf9oYcr/aGHK/2911c////8B////Af///wFtpO0PdXba/3dw2f93cNn/d3DZ/3dw2f91btf/kYza/+fm
-        9v+Oidf/aGHK/2hhyv9qY8z/baTtD////wH///8Bc5zkXXdw2f93cNn/d3DZ/3dw2f+Aetj/y8nt////
-        ////////jonX/2hhyv9oYcr/aGHK/3CB2Yf///8B////AXKV4aN3cNn/d3DZ/3ly2v+vrOX/+Pj9////
-        /////////////46J1/9oYcr/aGHK/2hhyv9uc9Td////Af///wFyleGjd3DZ/3dw2f95ctr/sK3m//j4
-        /f////////////////+Oidf/aGHK/2hhyv9sZc7/cYrds////wH///8Bc5zkXXdw2f93cNn/d3DZ/3dw
-        2f+Dfdv/zcru////////////jonX/2hhyv9vaNH/d3DZ/3Oc5F3///8B////AW2k7Q91dtr/d3DZ/3dw
-        2f93cNn/d3DZ/3dw2f+XkuD/5+b3/4+J2P9ya9T/d3DZ/3V22v9tpO0P////Af///wH///8Bcpjhj3dw
-        2f93cNn/d3DZ/3dw2f93cNn/d3DZ/3pz2v99d9n/d3DZ/3dw2f9ymOGP////Af///wH///8B////Af//
-        /wFzjN/Vd3DZ/3dw2f93cNn/d3DZ/3dw2f93cNn/d3DZ/3dw2f9zjN/V////Af///wH///8B////Af//
-        /wH///8B////AXKY4Y91dtr/d3DZ/3dw2f93cNn/d3DZ/3V22v9ymOGP////Af///wH///8B////Af//
-        /wH///8B////Af///wH///8BbaTtD3Oc5F1yleGjcpXho3Oc5F1tpO0P////Af///wH///8B////Af//
-        /wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af//
-        /wH///8BAAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA
-        //8AAP//AAD//w==
-</value>
-  </data>
+  <metadata name="cellContextMenuSongInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>555, 17</value>
+  </metadata>
+  <metadata name="songListBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>200, 17</value>
+  </metadata>
 </root>

@@ -56,11 +56,11 @@ namespace MuBoxic.View
             }
             else
             {
-                Stream fromfile = File.Create(AlbumBase);
-                fromfile.Close();
+                Stream create = File.Create(AlbumBase);
+                create.Close();
             }
 
-            if (name.Text.Length != 0)
+            if (name.TextLength != 0)
             {
                 int spaces = 0;
                 for (int i = 0; i < name.TextLength; i++)
@@ -73,7 +73,8 @@ namespace MuBoxic.View
                     _albumCacheList.Add(cacheAlbum);
                     MessageBox.Show(@"Done!");
                     name.Text = "";
-                    songs.Refresh();
+
+
                 }
                 else
                 {

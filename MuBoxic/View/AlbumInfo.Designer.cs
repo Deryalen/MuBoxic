@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlbumInfo));
             this.songs = new System.Windows.Forms.DataGridView();
-            this.cellContextMenuAlbumInfo = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cellContextMenuSongInfo = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showInfoOrEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.date = new System.Windows.Forms.DateTimePicker();
             this.id = new System.Windows.Forms.Label();
@@ -38,12 +39,13 @@
             this.edit = new System.Windows.Forms.Button();
             this.submit = new System.Windows.Forms.Button();
             this.editSongs = new System.Windows.Forms.CheckedListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.songListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.songs)).BeginInit();
-            this.cellContextMenuAlbumInfo.SuspendLayout();
+            this.cellContextMenuSongInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.songListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,20 +64,20 @@
             this.nameDataGridViewTextBoxColumn,
             this.dateDataGridViewTextBoxColumn});
             this.songs.DataSource = this.songListBindingSource;
-            this.songs.Location = new System.Drawing.Point(12, 68);
+            this.songs.Location = new System.Drawing.Point(12, 98);
             this.songs.Name = "songs";
             this.songs.ReadOnly = true;
-            this.songs.Size = new System.Drawing.Size(537, 181);
+            this.songs.Size = new System.Drawing.Size(537, 151);
             this.songs.TabIndex = 1;
             this.songs.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.showInfoOrEditToolStripMenuItem_Click);
             // 
-            // cellContextMenuAlbumInfo
+            // cellContextMenuSongInfo
             // 
-            this.cellContextMenuAlbumInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cellContextMenuSongInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showInfoOrEditToolStripMenuItem});
-            this.cellContextMenuAlbumInfo.Name = "contextMenuStrip1";
-            this.cellContextMenuAlbumInfo.Size = new System.Drawing.Size(128, 26);
-            this.cellContextMenuAlbumInfo.Opening += new System.ComponentModel.CancelEventHandler(this.cellContextMenuAlbumInfo_Opening);
+            this.cellContextMenuSongInfo.Name = "contextMenuStrip1";
+            this.cellContextMenuSongInfo.Size = new System.Drawing.Size(128, 26);
+            this.cellContextMenuSongInfo.Opening += new System.ComponentModel.CancelEventHandler(this.cellContextMenuAlbumInfo_Opening);
             // 
             // showInfoOrEditToolStripMenuItem
             // 
@@ -155,15 +157,26 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.editSongs.FormattingEnabled = true;
-            this.editSongs.Location = new System.Drawing.Point(12, 68);
+            this.editSongs.Location = new System.Drawing.Point(12, 98);
             this.editSongs.Name = "editSongs";
-            this.editSongs.Size = new System.Drawing.Size(537, 184);
+            this.editSongs.Size = new System.Drawing.Size(537, 154);
             this.editSongs.TabIndex = 7;
             this.editSongs.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Broadway", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(12, 74);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 21);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Songs";
+            // 
             // idDataGridViewTextBoxColumn
             // 
-            this.idDataGridViewTextBoxColumn.ContextMenuStrip = this.cellContextMenuAlbumInfo;
+            this.idDataGridViewTextBoxColumn.ContextMenuStrip = this.cellContextMenuSongInfo;
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
@@ -172,7 +185,7 @@
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.ContextMenuStrip = this.cellContextMenuAlbumInfo;
+            this.nameDataGridViewTextBoxColumn.ContextMenuStrip = this.cellContextMenuSongInfo;
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
@@ -180,7 +193,7 @@
             // 
             // dateDataGridViewTextBoxColumn
             // 
-            this.dateDataGridViewTextBoxColumn.ContextMenuStrip = this.cellContextMenuAlbumInfo;
+            this.dateDataGridViewTextBoxColumn.ContextMenuStrip = this.cellContextMenuSongInfo;
             this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
             this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
@@ -196,6 +209,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(81)))), ((int)(((byte)(87)))));
             this.ClientSize = new System.Drawing.Size(561, 261);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.submit);
             this.Controls.Add(this.edit);
             this.Controls.Add(this.name);
@@ -203,13 +217,15 @@
             this.Controls.Add(this.date);
             this.Controls.Add(this.songs);
             this.Controls.Add(this.editSongs);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(577, 300);
             this.Name = "AlbumInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AlbumInfo";
             this.Load += new System.EventHandler(this.AlbumInfo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.songs)).EndInit();
-            this.cellContextMenuAlbumInfo.ResumeLayout(false);
+            this.cellContextMenuSongInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.songListBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -226,9 +242,10 @@
         private System.Windows.Forms.Button submit;
         private System.Windows.Forms.CheckedListBox editSongs;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ContextMenuStrip cellContextMenuAlbumInfo;
+        private System.Windows.Forms.ContextMenuStrip cellContextMenuSongInfo;
         private System.Windows.Forms.ToolStripMenuItem showInfoOrEditToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label1;
     }
 }
