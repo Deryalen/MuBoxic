@@ -222,7 +222,7 @@ namespace MuBoxic.View
 
         private void SearchItem(object sender, EventArgs e)
         {
-            string query = searchBox.Text;
+            string query = searchBox.Text.ToLower();
             if (query == "")
             {
                 songView.DataSource = _songCacheList;
